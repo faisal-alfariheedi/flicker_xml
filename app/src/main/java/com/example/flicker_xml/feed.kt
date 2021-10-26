@@ -1,106 +1,92 @@
 package com.example.flicker_xml
 
 
+import org.simpleframework.xml.Attribute
 import org.simpleframework.xml.Element
+import org.simpleframework.xml.ElementList
 import org.simpleframework.xml.Root
+import java.io.Serializable
 
 @Root(name = "MethodResponse",strict = false)
 class MethodResponse @JvmOverloads constructor(
         @field:Element(required = false, name = "params")
-        @param:Element(name = "params")
-        val params: Params
-    )
+        var params: Params? = null
+    ): Serializable
 
-{
-    @Root(name = "params",strict = false)
+
+    @Root(name = "params", strict = false)
     class Params constructor(
-        @field:Element(required = false, name= "param")
-        @param:Element(name = "param")
-        val param: Param
-    ) {
-        @Root(name = "param",strict = false)
-        class Param constructor(
-            @field:Element(required = false, name= "value")
-            @param:Element(name = "value")
-            val value: Value
-        ) {
-            @Root(name = "value",strict = false)
-            class Value constructor(
-                @field:Element(required = false, name= "string")
-                @param:Element(name = "string")
-                val string: StringClass
-            ) {
-                @Root(name = "string",strict = false)
-                class StringClass constructor(
-                    @field:Element(required = false, name= "photos")
-                    @param:Element(name = "photos")
-                    val photos: Photos
-                ) {
-                    @Root(name = "photos",strict = false)
-                    class Photos constructor(
-                        val photo: List<Photo>,
+        @field:Element(required = false, name = "param")
+        var param: Param? = null
+    ): Serializable
 
-                        @field:Element(required = false, name= "_page")
-                         @param:Element(name = "_page")
-                        val page: String,
+    @Root(name = "param", strict = false)
+    class Param constructor(
+        @field:Element(required = false, name = "value")
+        var value: Value? = null
+    ): Serializable
 
-                        @field:Element(required = false, name= "_pages")
-                        @param:Element(name = "_pages")
-                        val pages: String,
+    @Root(name = "value", strict = false)
+    class Value constructor(
+        @field:Element(required = false, name = "string")
+        var string: str? = null
+    ): Serializable
 
-                        @field:Element(required = false, name= "_perpage")
-                        @param:Element(name = "_perpage")
-                        val perpage: String,
+    @Root(name = "string", strict = false)
+    class str constructor(
+        @field:Element(required = false, name = "photos")
+        var photos: Photos? = null
+    ): Serializable
 
-                        @field:Element(required = false, name= "_total")
-                        @param:Element(name = "_total")
-                        val total: String
-                    ) {
-                        @Root(name = "photo",strict = false)
-                        class Photo constructor(
-                            @field:Element(required = false, name= "_id")
-                            @param:Element(name = "_id")
-                            val id: String,
+    @Root(name = "photos", strict = false)
+    class Photos constructor(
+        @field:ElementList(inline=true, name = "photo")
+        var photo: List<Photo>? = null,
 
-                            @field:Element(required = false, name= "_owner")
-                            @param:Element(name = "_owner")
-                            val owner: String,
+        @field:Attribute(required = false, name = "page")
+        var page: String? = null,
 
-                            @field:Element(required = false, name= "_secret")
-                            @param:Element(name = "_secret")
-                            val secret: String,
+        @field:Attribute(required = false, name = "pages")
+        var pages: String? = null,
 
-                            @field:Element(required = false, name= "_server")
-                            @param:Element(name = "_server")
-                            val server: String,
+        @field:Attribute(required = false, name = "perpage")
+        var perpage: String? = null,
 
-                            @field:Element(required = false, name= "_farm")
-                            @param:Element(name = "_farm")
-                            val farm: String,
+        @field:Attribute(required = false, name = "total")
+        var total: String? = null
+    ): Serializable
 
-                            @field:Element(required = false, name= "_title")
-                            @param:Element(name = "_title")
-                            val title: String,
+    @Root(name = "photo", strict = false)
+    class Photo constructor(
+        @field:Attribute(required = false, name = "id")
+        var id: String? = null,
 
-                            @field:Element(required = false, name= "_ispublic")
-                            @param:Element(name = "_ispublic")
-                            val ispublic: String,
+        @field:Attribute(required = false, name = "owner")
+        var owner: String? = null,
 
-                            @field:Element(required = false, name= "_isfriend")
-                            @param:Element(name = "_isfriend")
-                            val isfriend: String,
+        @field:Attribute(required = false, name = "secret")
+        var secret: String? = null,
 
-                            @field:Element(required = false, name= "_isfamily")
-                            @param:Element(name = "_isfamily")
-                            val isfamily: String
-                        ) {
+        @field:Attribute(required = false, name = "server")
+        var server: String? = null,
 
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+        @field:Attribute(required = false, name = "farm")
+        var farm: String? = null,
+
+        @field:Attribute(required = false, name = "title")
+        var title: String? = null,
+
+        @field:Attribute(required = false, name = "ispublic")
+        var ispublic: String? = null,
+
+        @field:Attribute(required = false, name = "isfriend")
+        var isfriend: String? = null,
+
+        @field:Attribute(required = false, name = "isfamily")
+        var isfamily: String? = null
+    ): Serializable
+
+
+
 
 
